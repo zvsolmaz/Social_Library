@@ -1,7 +1,7 @@
 # Social_Library
-DİNAMİK SINAV TAKVİMİ VE OTURMA PLANI SİSTEMİ
-Dynamic Exam Scheduling and Seating Plan System
-================================================
+NOVASHELF – SOSYAL KÜTÜPHANE PLATFORMU
+NovaShelf – Social Library Platform
+===================================
 
 
 ====================
@@ -9,95 +9,79 @@ TÜRKÇE
 ====================
 
 PROJE TANIMI
-Bu proje, üniversite genelinde sınavların adil, çakışmasız ve verimli
-şekilde planlanmasını amaçlayan PyQt6 tabanlı bir masaüstü uygulamasıdır.
+NovaShelf, kullanıcıların kitap ve film içeriklerini kişisel
+kütüphanelerinde takip edebildiği, puanlayabildiği, yorum yapabildiği
+ve diğer kullanıcılarla sosyal bir akış üzerinden etkileşime
+girebildiği web tabanlı bir sosyal kütüphane platformudur.
 
-Sistem; dersler, öğrenciler, öğretim elemanları ve derslikleri birlikte
-ele alarak sınav takvimini otomatik üretir ve her sınav için derslik
-bazlı oturma planları oluşturur. Uygulama, manuel planlamada sıkça
-karşılaşılan öğrenci çakışmaları, kapasite yetersizlikleri ve dengesiz
-dağılım problemlerini otomatik algoritmalarla çözer.
+Platform; kişisel içerik takibi ile sosyal medya dinamiklerini
+birleştirerek kullanıcıların okudukları ve izledikleri içerikleri
+yalnızca arşivlemekle kalmayıp, bu içerikler üzerine etkileşim
+kurmalarını sağlar.
 
 
 PROJENİN AMAÇLARI
-- Öğrencilerin aynı anda birden fazla sınava girmesini önlemek
-- Derslik kapasitesini en verimli şekilde kullanmak
-- Sınavları gün ve saatlere dengeli biçimde dağıtmak
-- Otomatik ve görsel olarak anlaşılır sınav programları üretmek
-- Oturma düzenlerini derslik bazlı ve düzenli şekilde oluşturmak
-- PDF ve Excel çıktılarıyla idari süreçleri kolaylaştırmak
+- Kitap ve film içeriklerini tek bir platformda toplamak
+- Kullanıcıların içerikleri puanlayıp yorumlayabilmesini sağlamak
+- Kişisel kütüphane ve özel listeler oluşturmak
+- Sosyal akış üzerinden kullanıcı etkileşimini artırmak
+- Harici API’ler ile zengin ve güncel içerik verisi sunmak
+- Modern ve kullanıcı dostu bir arayüz geliştirmek
 
 
-KULLANILAN YÖNTEM VE ALGORİTMALAR
-- Dersler arası ilişkiler çakışma grafı (conflict graph) ile modellenmiştir
-- Graf boyama (graph coloring) yaklaşımı ile sınav slot ataması yapılmıştır
-- Dersler; öğrenci sayısı ve çakışma derecesine göre önceliklendirilmiştir
-- Derslikler kapasite ve fiziksel düzenlerine göre otomatik atanmıştır
-- Her sınav için derslik bazlı oturma planı oluşturulmuştur
-- Çakışma, kapasite aşımı ve yasaklı günler otomatik kontrol edilmiştir
-
-
-UYGULAMA ÖZELLİKLERİ
-- PyQt6 ile geliştirilmiş modern masaüstü arayüz
-- Kullanıcı giriş sistemi (Admin / Koordinatör)
-- Excel üzerinden ders ve öğrenci listesi yükleme
-- Takvim ve tablo tabanlı sınav programı görünümü
-- Çakışma ve istisna yönetimi (detaylı hata raporları)
-- Derslik bazlı etkileşimli oturma planı görselleştirmesi
-- PDF ve Excel çıktı alma desteği
-- Hata, uyarı ve log paneli
+TEMEL ÖZELLİKLER
+- Kullanıcı kayıt ve giriş sistemi (JWT tabanlı doğrulama)
+- Kitap ve film keşfetme (arama & filtreleme)
+- Harici API entegrasyonu (TMDb, Google Books, Open Library)
+- İçerik puanlama ve yorum yapma
+- Beğeni (like) ve yorumlara cevap verme
+- Kişisel kütüphane (okuduklarım / izlediklerim)
+- Özel listeler oluşturma
+- Kullanıcı takip et / takibi bırak sistemi
+- Sosyal akış (feed) yapısı
+- Profil ve aktivite geçmişi görüntüleme
 
 
 KULLANILAN TEKNOLOJİLER
-- Python 3
-- PyQt6
-- Pandas
-- NetworkX
-- SQL / MSSQL
-- Excel ve PDF çıktı araçları
+Frontend:
+- React
+- Modern CSS (dark theme UI)
+
+Backend:
+- Node.js
+- Express.js
+- JWT Authentication
+
+Database:
+- Microsoft SQL Server
+
+Harici Servisler:
+- TMDb API (Film verileri)
+- Google Books API
+- Open Library API
 
 
-PROJE YAPISI
-sinavprogrami/
-- app.py              : Ana uygulama
-- auth.py             : Kullanıcı doğrulama
-- login.py            : Giriş işlemleri
-- login_dialog.py     : Giriş arayüzü
-- main_window.py      : Ana pencere
-- dp.py               : Planlama algoritmaları
-- dp_check.py         : Çakışma ve kısıt kontrolleri
-- SQLQuery.sql        : Veritabanı sorguları
-- DersListesi.xlsx    : Örnek veri dosyası
-- screenshots/        : README görselleri
+SİSTEM MİMARİSİ
+- Frontend ve Backend katmanları ayrılmıştır
+- RESTful API mimarisi kullanılmıştır
+- Kullanıcı kimlik doğrulama JWT ile sağlanır
+- Sosyal akış, kullanıcı aktiviteleri üzerinden dinamik olarak üretilir
+- İçerik verileri harici API’lerden otomatik çekilir ve önbelleklenir
 
 
-NASIL ÇALIŞTIRILIR
-1) Gerekli kütüphaneleri yükleyin:
-pip install pyqt6 pandas networkx
-
-2) Uygulamayı başlatın:
-python app.py
-
-3) Kullanım adımları:
-- Uygulamayı başlatın
-- Admin veya yetkili kullanıcı ile giriş yapın
-- Excel dosyaları ile ders ve öğrenci verilerini yükleyin
-- Sınav tarihleri, türü ve süre kısıtlarını belirleyin
-- “Programı Oluştur” butonuna basın
-- Sınav takvimini ve oturma planlarını inceleyin
-- PDF veya Excel çıktısı alın
+UYGULAMA AKIŞI
+1) Kullanıcı kayıt olur veya giriş yapar
+2) Kitap / film içerikleri keşfet bölümünde listelenir
+3) Kullanıcı içerikleri puanlar, yorum yapar veya listesine ekler
+4) Yapılan tüm aktiviteler sosyal akışta paylaşılır
+5) Diğer kullanıcılar bu aktiviteleri beğenebilir veya yorumlayabilir
+6) Kullanıcılar birbirini takip edebilir
+7) Profil sayfasında kişisel kütüphane ve aktiviteler görüntülenir
 
 
-UYGULAMA EKRAN GÖRÜNTÜLERİ
-
-Genel Uygulama Önizleme
-![Uygulama Önizleme](screenshots/preview.png)
-
-Çakışma ve İstisna Yönetimi
-![İstisnalar](screenshots/exceptions.jpeg)
-
-Oturma Düzeni ve Derslik Yerleşimi
-![Oturma Düzeni](screenshots/oturma_duzeni.png)
+PROJE KAPSAMI
+Bu proje, Kocaeli Üniversitesi Bilgisayar Mühendisliği
+Yazılım Laboratuvarı I dersi kapsamında geliştirilmiştir.
 
 
 GELİŞTİRİCİLER
@@ -111,80 +95,78 @@ ENGLISH
 ====================
 
 PROJECT DESCRIPTION
-This project is a PyQt6-based desktop application designed to generate
-fair, conflict-free, and optimized exam schedules at the university level.
+NovaShelf is a web-based social library platform where users can
+track books and movies in their personal libraries, rate content,
+write comments, and interact with other users through a social feed.
 
-The system automatically creates exam timetables by considering courses,
-students, instructors, and classrooms together. It also generates
-classroom-based seating plans for each exam, eliminating manual scheduling
-errors such as student conflicts and capacity issues.
+The platform combines personal content management with social media
+features, enabling users not only to archive what they read or watch,
+but also to engage with content and other users.
 
 
 PROJECT OBJECTIVES
-- Prevent students from having overlapping exams
-- Optimize classroom capacity usage
-- Distribute exams evenly across days and time slots
-- Automatically generate clear and structured exam schedules
-- Create classroom-based seating arrangements
-- Export results as PDF and Excel files
+- Combine book and movie tracking in a single platform
+- Enable users to rate and comment on content
+- Allow users to create personal libraries and custom lists
+- Increase user interaction through a social feed
+- Provide rich and up-to-date content using external APIs
+- Deliver a modern and user-friendly interface
 
 
-METHODS AND ALGORITHMS
-- Course relationships are modeled using a conflict graph
-- Exam time slots are assigned using graph coloring techniques
-- Courses are prioritized based on student count and conflict degree
-- Classrooms are assigned according to capacity and layout
-- Seating plans are generated for each classroom
-- Constraint violations are automatically detected and reported
+KEY FEATURES
+- User registration and authentication (JWT-based)
+- Book and movie discovery (search & filtering)
+- External API integration (TMDb, Google Books, Open Library)
+- Content rating and commenting
+- Like system and comment replies
+- Personal library management
+- Custom list creation
+- Follow / unfollow users
+- Social activity feed
+- Profile and activity history pages
 
 
-FEATURES
-- Modern desktop GUI developed with PyQt6
-- User authentication system (Admin / Coordinator)
-- Excel-based bulk data import
-- Calendar and table-based exam schedule view
-- Detailed conflict and exception management
-- Interactive seating plan visualization
-- PDF and Excel export support
-- Error and warning reporting panel
+TECHNOLOGIES USED
+Frontend:
+- React
+- Modern CSS with dark theme design
+
+Backend:
+- Node.js
+- Express.js
+- JWT Authentication
+
+Database:
+- Microsoft SQL Server
+
+External Services:
+- TMDb API (Movies)
+- Google Books API
+- Open Library API
 
 
-TECHNOLOGIES
-- Python 3
-- PyQt6
-- Pandas
-- NetworkX
-- SQL / MSSQL
-- Excel and PDF export tools
+SYSTEM ARCHITECTURE
+- Separated frontend and backend layers
+- RESTful API architecture
+- JWT-based authentication and authorization
+- Dynamic social feed based on user activities
+- Automatic content fetching from external APIs
 
 
-HOW TO RUN
-1) Install dependencies:
-pip install pyqt6 pandas networkx
-
-2) Run the application:
-python app.py
-
-3) Workflow:
-- Launch the application
-- Log in as an authorized user
-- Import course and student data via Excel
-- Define exam dates, types, and constraints
-- Click “Generate Schedule”
-- Review exam timetable and seating plans
-- Export outputs as PDF or Excel
+APPLICATION FLOW
+1) User registers or logs in
+2) Books and movies are displayed in the explore section
+3) User rates, comments on, or adds content to their library
+4) All activities appear in the social feed
+5) Other users can like or comment on activities
+6) Users can follow each other
+7) Profile page displays personal library and activity history
 
 
-SCREENSHOTS
-
-Application Overview
-![Preview](screenshots/preview.png)
-
-Conflict and Exception Management
-![Exceptions](screenshots/exceptions.jpeg)
-
-Seating Plan Visualization
-![Seating Plan](screenshots/oturma_duzeni.png)
+PROJECT CONTEXT
+This project was developed as part of the
+Software Laboratory I course at Kocaeli University,
+Department of Computer Engineering.
 
 
 DEVELOPERS
@@ -193,9 +175,10 @@ DEVELOPERS
 
 
 NOTE
-This project was developed for academic and portfolio purposes and can be
-extended with additional optimization constraints and reporting features.
-====================
+NovaShelf is an academic and portfolio project.
+The platform can be extended with recommendation systems,
+advanced search features, and performance optimizations.
+
 SOSYAL KÜTÜPHANE PLATFORMU – EKRAN GÖRÜNTÜLERİ
 ====================
 
