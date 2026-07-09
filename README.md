@@ -1,7 +1,13 @@
 # NovaShelf — Social Library 📚🎬
 
-Kişisel kütüphane yönetimi ile sosyal medya deneyimini birleştiren web tabanlı bir platform.
-A web-based platform that combines personal library management with a social media experience.
+![React](https://img.shields.io/badge/Frontend-React-61DAFB?logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/Build-Vite-646CFF?logo=vite&logoColor=white)
+![Node.js](https://img.shields.io/badge/Backend-Node.js%20%2F%20Express-339933?logo=node.js&logoColor=white)
+![SQL Server](https://img.shields.io/badge/Database-MSSQL-CC2927?logo=microsoftsqlserver&logoColor=white)
+![JWT](https://img.shields.io/badge/Auth-JWT-black?logo=jsonwebtokens)
+
+Kişisel kütüphane yönetimi ile sosyal medya deneyimini birleştiren, **React** tabanlı frontend ve **Node.js/Express** tabanlı backend ile geliştirilmiş web tabanlı bir platform.
+A web-based platform built with a **React** frontend and a **Node.js/Express** backend, combining personal library management with a social media experience.
 
 ---
 
