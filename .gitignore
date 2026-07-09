@@ -1,0 +1,4 @@
+
+.env
+client/.env.local
+node_modules/
