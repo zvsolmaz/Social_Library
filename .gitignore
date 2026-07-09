@@ -2,3 +2,5 @@
 .env
 client/.env.local
 node_modules/
+
+desktop.ini
